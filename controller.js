@@ -93,10 +93,11 @@ function roundComplete(){
 	$("#wrongLetters").html(wrongLetters.join(" "));
 
 	if (lettersInBand.toString() === blanksAndSuccesses.toString()) {
-		winCount++;
+		winCount++
 
-		$("#winLose").html("You Won!!");
-
+		$("#winLose").html("You Won!!" + "<br>" + "<button>" + "Play Again" + "</button>");
+		$("<button>").addClass("startGame");
+		$(".startGame").html(startGame);
 		$("#winCount").html(winCount);
 
 		
@@ -121,14 +122,14 @@ function roundComplete(){
 
 	//display startGame button
 
-	//assign var to a dynamically created button
+	/*assign var to a dynamically created button
 
 		var playAgainBtn = $("<button>");
 
 	//assign startGame to button
 		playAgainBtn.click(startGame());
 
-		$("#playAgain").html(playAgainBtn);
+		$("#playAgain").html(playAgainBtn);*/
 
 }
 
