@@ -97,10 +97,9 @@ function roundComplete(){
 
 		$("#winLose").html("You Won!!" + "<br>" + "<button>" + "Play Again" + "</button>");
 		$("<button>").addClass("startGame");
-		$(".startGame").html(startGame);
-		$("#winCount").html(winCount);
+		$(".startGame").click(startGame());
 
-		
+		$("#winCount").html(winCount);
 		
 		//startGame();
 	}
@@ -112,24 +111,8 @@ function roundComplete(){
 
 		$("#lossCount").html(lossCount);
 
-
-
-		//display startGame button
-		//$("#playAgain").html(playAgain);
-
 		//startGame();
 	}
-
-	//display startGame button
-
-	/*assign var to a dynamically created button
-
-		var playAgainBtn = $("<button>");
-
-	//assign startGame to button
-		playAgainBtn.click(startGame());
-
-		$("#playAgain").html(playAgainBtn);*/
 
 }
 
