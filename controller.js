@@ -18,6 +18,7 @@ var winCount = 0;
 
 //FUNCTIONS
 function startGame (){
+	console.log('in startGame');
 	selectedBand = bandOptions[Math.floor(Math.random()* bandOptions.length)];
 	lettersInBand = selectedBand.split("");
 	numBlanks = lettersInBand.length;
@@ -48,6 +49,8 @@ function startGame (){
 	console.log(lettersInBand);
 	console.log(numBlanks);
 	console.log(blanksAndSuccesses);
+
+	$("#winLose").empty();
 }
 
 function checkLetters(letter) {
@@ -95,9 +98,9 @@ function roundComplete(){
 	if (lettersInBand.toString() === blanksAndSuccesses.toString()) {
 		winCount++
 
-		$("#winLose").html("You Won!!" + "<br>" + "<button>" + "Play Again" + "</button>");
+		$("#winLose").html("You Won!!" + "<br>" + "<button id='playAgain'>" + "Play Again" + "</button>");
 		$("#winCount").html(winCount);
-		$("<button>").click(startGame());
+		$("#playAgain").on('click',  startGame);
 		//startGame();
 	}
 
@@ -107,11 +110,13 @@ function roundComplete(){
 		$("#winLose").html("You Lose, Try Again!");
 
 		$("#lossCount").html(lossCount);
+		$("#playAgain").on('click',  startGame);
 
 		//startGame();
 	}
 
 }
+
 
 //=======================================================================
 
