@@ -96,11 +96,8 @@ function roundComplete(){
 		winCount++
 
 		$("#winLose").html("You Won!!" + "<br>" + "<button>" + "Play Again" + "</button>");
-		$("<button>").addClass("startGame");
-		$(".startGame").click(startGame());
-
 		$("#winCount").html(winCount);
-		
+		$("<button>").click(startGame());
 		//startGame();
 	}
 
