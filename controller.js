@@ -27,6 +27,7 @@ function startGame (){
 	wrongLetters = [];
 	blanksAndSuccesses = [];
 
+
 	//populate blanks and successes with right number of blanks
 	for (var i=0; i < numBlanks; i++) {
 		blanksAndSuccesses.push("-");
@@ -84,6 +85,7 @@ function checkLetters(letter) {
 }
 
 function roundComplete(){
+	
 	console.log("Win Count: " + winCount + " | Loss Count: " + lossCount + " | Guesses Left " + guessesLeft);
 
 	$("#guessesLeft").html(guessesLeft);
@@ -91,31 +93,49 @@ function roundComplete(){
 	$("#wrongLetters").html(wrongLetters.join(" "));
 
 	if (lettersInBand.toString() === blanksAndSuccesses.toString()) {
-		winCount++
+		winCount++;
 
-		$("#image").html("<img url:./images/kiss.jpg/>")
+		$("#winLose").html("You Won!!");
 
-		$("#winCount").html("Wins: " + winCount);
+		$("#winCount").html(winCount);
 
-		startGame();
+		
+		
+		//startGame();
 	}
 
 	else if (guessesLeft === 0) {
-		lossCount++
-		alert("You lost!");
+		lossCount++;
+
+		$("#winLose").html("You Lose, Try Again!");
+
+		$("#lossCount").html(lossCount);
 
 
-		$("#lossCount").html("Losses: " + lossCount);
 
-		startGame();
+		//display startGame button
+		//$("#playAgain").html(playAgain);
+
+		//startGame();
 	}
+
+	//display startGame button
+
+	//assign var to a dynamically created button
+
+		var playAgainBtn = $("<button>");
+
+	//assign startGame to button
+		playAgainBtn.click(startGame());
+
+		$("#playAgain").html(playAgainBtn);
+
 }
 
 //=======================================================================
 
 
 //MAIN PROCESS
-
 startGame();
 
 //key clicks
@@ -125,7 +145,7 @@ $(document).keyup(function(event) {
 	roundComplete();
 
 	//testing
-	console.log(letterGuessed)
+	//console.log(letterGuessed)
 })
 
 
