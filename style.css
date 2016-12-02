@@ -1,7 +1,8 @@
 body {
 	background-image: url("./assets/images/rockerBackgroun.jpg");
-	color: white;
+	color: red;
 	font-family: "New Rocker";
+	font-size: 25px;
 }
 
 .jumbotron {

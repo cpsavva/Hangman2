@@ -1,7 +1,7 @@
 //GLOBAL VARIABLES
 
 //arrays and variables for holding data
-var bandOptions = ["heart", "kiss", "journey", "queen", "ramones"];
+var bandOptions = ["heart", "kiss", "journey", "queen", "ramones", "acdc", "motorhead", "aerosmith"];
 var selectedBand = "";
 var lettersInBand = [];
 var numBlanks = 0;
@@ -31,7 +31,7 @@ function startGame (){
 
 	//populate blanks and successes with right number of blanks
 	for (var i=0; i < numBlanks; i++) {
-		blanksAndSuccesses.push("-");
+		blanksAndSuccesses.push("_");
 	} 
 
 
@@ -100,7 +100,7 @@ function roundComplete(){
 	if (lettersInBand.toString() === blanksAndSuccesses.toString()) {
 		winCount++
 
-		$("#winLose").html("You Won!!" + "<br>" + "<button id='playAgain'>" + "Play Again" + "</button>");
+		$("#winLose").html("You Won!!" + "<br>" + "<br>" + "<button id='playAgain'>" + "Play Again" + "</button>");
 		$("#winCount").html(winCount);
 		$("#playAgain").on('click',  startGame);
 		$('<img src="'+ "./assets/images/win_image.png" +'">').load(function() {
@@ -112,7 +112,7 @@ function roundComplete(){
 	else if (guessesLeft === 0) {
 		lossCount++;
 
-		$("#winLose").html("You Lose, Try Again!" +  "<br>" + "<button id='playAgain'>" + "Play Again" + "</button>");
+		$("#winLose").html("You Lose, Try Again!" + "<br>" + "<br>" + "<button id='playAgain'>" + "Play Again" + "</button>");
 		$("#lossCount").html(lossCount);
 		$("#playAgain").on('click',  startGame);
 		$('<img src="'+ "./assets/images/lose_image.png" +'">').load(function() {
