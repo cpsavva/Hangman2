@@ -51,6 +51,7 @@ function startGame (){
 	console.log(blanksAndSuccesses);
 
 	$("#winLose").empty();
+	$("#image").empty();
 }
 
 function checkLetters(letter) {
@@ -101,6 +102,9 @@ function roundComplete(){
 		$("#winLose").html("You Won!!" + "<br>" + "<button id='playAgain'>" + "Play Again" + "</button>");
 		$("#winCount").html(winCount);
 		$("#playAgain").on('click',  startGame);
+		$('<img src="'+ "./assets/images/win_image.png" +'">').load(function() {
+			$(this).width("200px").height("200px").appendTo("#image");
+		});
 		//startGame();
 	}
 
@@ -110,7 +114,10 @@ function roundComplete(){
 		$("#winLose").html("You Lose, Try Again!");
 
 		$("#lossCount").html(lossCount);
-		$("#playAgain").on('click',  startGame);
+		//$("#playAgain").on('click',  startGame);
+		$('<img src="'+ "./assets/images/lose_image.png" +'">').load(function() {
+			$(this).width("200px").height("200px").appendTo("#image");
+		});
 
 		//startGame();
 	}
