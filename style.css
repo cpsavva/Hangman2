@@ -1,3 +1,9 @@
 body {
-	background-image: url("./assets/images/rock_n_roll.jpg");
+	background-image: url("./assets/images/rockerBackgroun.jpg");
+	color: white;
+	font-family: "New Rocker";
+}
+
+.jumbotron {
+	background-image: url("./assets/images/guitar.jpg");
 }
