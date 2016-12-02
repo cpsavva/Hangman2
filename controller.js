@@ -41,6 +41,7 @@ function startGame (){
 	$("#guessesLeft").html(guessesLeft);
 	$("#winCount").html(winCount);
 	$("#lossCount").html(lossCount);
+	$("#wrongLetters").html(wrongLetters);
 
 
 
@@ -111,10 +112,9 @@ function roundComplete(){
 	else if (guessesLeft === 0) {
 		lossCount++;
 
-		$("#winLose").html("You Lose, Try Again!");
-
+		$("#winLose").html("You Lose, Try Again!" +  "<br>" + "<button id='playAgain'>" + "Play Again" + "</button>");
 		$("#lossCount").html(lossCount);
-		//$("#playAgain").on('click',  startGame);
+		$("#playAgain").on('click',  startGame);
 		$('<img src="'+ "./assets/images/lose_image.png" +'">').load(function() {
 			$(this).width("200px").height("200px").appendTo("#image");
 		});
