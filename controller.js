@@ -53,6 +53,8 @@ function startGame (){
 
 	$("#winLose").empty();
 	$("#image").empty();
+
+
 }
 
 function checkLetters(letter) {
@@ -119,23 +121,33 @@ function roundComplete(){
 			$(this).width("200px").height("200px").appendTo("#image");
 		});
 
+
 		//startGame();
 	}
 
 }
-
+//adding audio
+	function themeMusic(src, options) {
+	  var audio = document.createElement('audio');
+	  audio.src    = src;
+	  return audio;
+	}
+	var musicPlease = themeMusic('assets/sounds/redline (mp3cut.net).mp3');
+	musicPlease.play();
 
 //=======================================================================
 
 
 //MAIN PROCESS
 startGame();
+musicPlease.play();
 
 //key clicks
 $(document).keyup(function(event) {
 	var letterGuessed = String.fromCharCode(event.keyCode).toLowerCase();
 	checkLetters(letterGuessed);
 	roundComplete();
+
 
 	//testing
 	//console.log(letterGuessed)
