@@ -13,11 +13,22 @@ var wrongLetters = [];
 var lossCount = 0;
 var guessesLeft = 9;
 var winCount = 0;
-
+ var inPlay = false;
 //=======================================================================
 
 //FUNCTIONS
 function startGame (){
+// 	$(document).keyup(function(event) {
+// // if (inPlay == true){
+
+// var letterGuessed = String.fromCharCode(event.keyCode).toLowerCase();
+// checkLetters(letterGuessed);
+// roundComplete();
+// // }
+// // else {
+// // 	inPlay;
+
+	inPlay = true;
 	console.log('in startGame');
 	selectedBand = bandOptions[Math.floor(Math.random()* bandOptions.length)];
 	lettersInBand = selectedBand.split("");
@@ -84,6 +95,7 @@ function checkLetters(letter) {
 		wrongLetters.push(letter);
 		guessesLeft--
 
+
 	}
 
 	//testing
@@ -104,24 +116,29 @@ function roundComplete(){
 
 		$("#winLose").html("You Won!!" + "<br>" + "<br>" + "<button id='playAgain'>" + "Play Again" + "</button>");
 		$("#winCount").html(winCount);
+
 		$("#playAgain").on('click',  startGame);
 		$('<img src="'+ "./assets/images/win_image.png" +'">').load(function() {
 			$(this).width("200px").height("200px").appendTo("#image");
 		});
 		//startGame();
+		inPlay = false;
 	}
 
 	else if (guessesLeft === 0) {
 		lossCount++;
 
+
 		$("#winLose").html("You Lose, Try Again!" + "<br>" + "<br>" + "<button id='playAgain'>" + "Play Again" + "</button>");
 		$("#lossCount").html(lossCount);
+
 		$("#playAgain").on('click',  startGame);
 		$('<img src="'+ "./assets/images/lose_image.png" +'">').load(function() {
 			$(this).width("200px").height("200px").appendTo("#image");
 		});
 		$("#selectedBand").html(selectedBand);
 
+		inPlay = false;
 
 		//startGame();
 	}
@@ -140,19 +157,23 @@ function roundComplete(){
 
 
 //MAIN PROCESS
-startGame();
+$("#start").on('click', startGame);
 musicPlease.play();
 
 //key clicks
 $(document).keyup(function(event) {
-	var letterGuessed = String.fromCharCode(event.keyCode).toLowerCase();
-	checkLetters(letterGuessed);
-	roundComplete();
+if (inPlay == true){
+
+var letterGuessed = String.fromCharCode(event.keyCode).toLowerCase();
+checkLetters(letterGuessed);
+roundComplete();
+}
 
 
+
+});
 	//testing
 	//console.log(letterGuessed)
-})
 
 
 //=======================================================================
