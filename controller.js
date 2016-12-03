@@ -120,6 +120,7 @@ function roundComplete(){
 		$('<img src="'+ "./assets/images/lose_image.png" +'">').load(function() {
 			$(this).width("200px").height("200px").appendTo("#image");
 		});
+		$("#selectedBand").html(selectedBand);
 
 
 		//startGame();
